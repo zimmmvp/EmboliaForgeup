@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embolia Build Planner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Battle for Embolia - Build Planner</h1>
-    </header>
-    
-    <main id="skills-container">
-        <!-- Las habilidades se cargarán aquí automáticamente -->
-    </main>
+    <div class="main-layout">
+        <!-- Izquierda: Habilidades -->
+        <section id="habilidades" class="panel">
+            <h2>Habilidades</h2>
+            <div id="skills-container"></div>
+        </section>
 
+        <!-- Centro: Personaje y Equipo -->
+        <section id="equipo" class="panel">
+            <h2>Equipamiento</h2>
+            <div class="equipo-grid">
+                <div class="slots-col"> <!-- 5 slots izquierda -->
+                    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+                </div>
+                <div class="character-preview">Personaje</div>
+                <div class="slots-col"> <!-- 5 slots derecha -->
+                    <div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div><div class="slot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Derecha: Estadísticas -->
+        <section id="estadisticas" class="panel">
+            <h2>Estadísticas</h2>
+            <p>Daño Total: 222</p>
+            <p>Critico: 96</p>
+            <p>Defensa: 31</p>
+        </section>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
