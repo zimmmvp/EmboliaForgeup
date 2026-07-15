@@ -28,7 +28,7 @@
 
     <!-- Modal Final -->
     <div id="modal-planner" class="modal">
-        <div class="modal-contenido" style="width: 700px;">
+        <div class="modal-contenido" style="width: 750px;">
             <span class="cerrar" onclick="cerrarModal()">&times;</span>
             <h2 id="modal-titulo">Editar Ítem</h2>
             
@@ -39,7 +39,8 @@
             
             <div id="seccion-edicion" style="display:none;">
                 <div class="tooltip-layout-final">
-                    <div class="tooltip-col-izq">
+                    <!-- Columna Izquierda -->
+                    <div class="col-izq">
                         <div id="item-preview-img" class="item-img-box">?</div>
                         <div class="controles-form">
                             <label>Rareza:</label>
@@ -51,32 +52,33 @@
                                 <option value="legendario" data-color="#ff8c00">Legendario</option>
                             </select>
                             <label>Grado:</label>
-                            <select id="select-grado" onchange="actualizarInfo()">
-                                <option value="D">Grado D</option><option value="C">Grado C</option><option value="B">Grado B</option>
-                            </select>
+                            <select id="select-grado"><option value="D">Grado D</option><option value="C">Grado C</option><option value="B">Grado B</option></select>
                             <label>Poder:</label>
                             <input type="number" id="input-poder" oninput="actualizarInfo()">
                         </div>
                     </div>
-                    <div class="tooltip-col-der">
+                    <!-- Columna Derecha -->
+                    <div class="col-der">
                         <div class="bloque-stats">
                             <h3>Stats Base</h3>
-                            <input type="text" id="input-stats-base" placeholder="Ej: Defensa 10">
+                            <input type="text" id="input-stats-base" placeholder="Ej: Defensa 10" style="width:100%;">
                         </div>
-                        <hr class="linea-divisoria">
+                        <hr style="margin: 15px 0;">
                         <div class="bloque-mods">
                             <h3>Modificadores</h3>
-                            <div id="lista-mods-agregados"></div>
-                            <select id="select-mods">
-                                <option value="Critico">Critico</option><option value="Defensa">Defensa</option>
-                                <option value="Evasion">Evasion</option>
-                            </select>
-                            <input type="number" id="input-valor-mod" placeholder="Valor">
-                            <button onclick="agregarModSeleccionado()">Agregar</button>
+                            <div id="lista-mods-agregados" style="height: 150px; overflow-y: auto; background: #1a1a1a; margin-bottom: 10px;"></div>
+                            <div style="display: flex; gap: 5px;">
+                                <select id="select-mods">
+                                    <option value="Critico">Critico</option><option value="Defensa">Defensa</option>
+                                    <option value="Evasion">Evasion</option>
+                                </select>
+                                <input type="number" id="input-valor-mod" placeholder="Valor" style="width: 60px;">
+                                <button onclick="agregarModSeleccionado()">Agregar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <button onclick="cerrarModal()" style="margin-top:15px; width:100%;">Guardar y Cerrar</button>
+                <button onclick="cerrarModal()" style="width: 100%; margin-top: 20px; padding: 10px;">Guardar y Cerrar</button>
             </div>
         </div>
     </div>
