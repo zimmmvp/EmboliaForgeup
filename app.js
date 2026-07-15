@@ -50,13 +50,15 @@ document.getElementById('buscador').addEventListener('input', (e) => {
     renderizarItems(filtrados);
 });
 function equiparItem(item) {
+    console.log("Equipando:", item.nombre);
+    
     // Buscamos en el HTML todos los slots disponibles
     const slots = document.querySelectorAll('.slot');
     
     // Esto es un ejemplo simple: asignamos el primer slot que esté vacío
-    // En el futuro podemos mejorar esto para que detecte si es Casco, Arma, etc.
     for (let slot of slots) {
-        if (slot.innerText === slot.getAttribute('data-tipo')) {
+        // Comparamos si el texto del slot es igual al data-tipo original
+        if (slot.innerText.toLowerCase() === slot.getAttribute('data-tipo').toLowerCase()) {
             slot.innerText = item.nombre;
             slot.style.border = "2px solid #00e676"; // Cambia el borde a verde al equipar
             break; // Salimos del bucle para no llenar todos los slots
