@@ -32,17 +32,17 @@ async function cargarDatos() {
 
 function renderizarItems(items) {
     const contenedor = document.getElementById('lista-items');
-    contenedor.innerHTML = ''; // Limpiar lista
+    contenedor.innerHTML = ''; 
     
     items.forEach(item => {
         const div = document.createElement('div');
         div.className = 'item-card';
         div.innerHTML = `<span>${item.nombre}</span>`;
-        div.onclick = () => equiparItem(item);
+        // ESTO es lo que hace que al hacer clic se ejecute la función
+        div.onclick = () => equiparItem(item); 
         contenedor.appendChild(div);
     });
 }
-
 // Buscador
 document.getElementById('buscador').addEventListener('input', (e) => {
     const busqueda = e.target.value.toLowerCase();
