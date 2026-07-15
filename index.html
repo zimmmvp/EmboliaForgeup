@@ -6,88 +6,45 @@
     <title>Planner Battle For Embolia</title>
 </head>
 <body>
-    <header>
-        <h1>⚔️ Build Planner - Battle For Embolia 🛡️</h1>
-    </header>
+    <header><h1>⚔️ Build Planner - Battle For Embolia 🛡️</h1></header>
 
     <div class="main-container">
-        <!-- Zona 1: Buscador y Lista -->
         <aside class="sidebar">
             <input type="text" id="buscador" placeholder="Buscar ítem...">
             <div id="lista-items"></div>
         </aside>
 
-        <!-- Zona 2: Personaje -->
         <main class="personaje-zona">
-    <h2 id="nombre-personaje">Guerrero Zombie</h2>
-    
-    <div class="layout-personaje">
-        <!-- Columna Izquierda (5 slots) -->
-        <div class="columna-slots">
-<div class="slot" data-tipo="armadura" onclick="filtrarPorTipo('armadura')">Armadura</div>
-<div class="slot" data-tipo="casco" onclick="filtrarPorTipo('casco')">Casco</div>
-            <div class="slot" data-tipo="guantes">Guantes</div>
-            <div class="slot" data-tipo="botas">Botas</div>
-            <div class="slot" data-tipo="alas">Alas</div>
-        </div>
-
-        <!-- Personaje en el medio -->
-        <div class="imagen-personaje">
-            <div class="placeholder-img">👤</div>
-        </div>
-
-        <!-- Columna Derecha (5 slots) -->
-        <div class="columna-slots">
-            <div class="slot" data-tipo="arma">Arma</div>
-            <div class="slot" data-tipo="escudo">Escudo</div>
-            <div class="slot" data-tipo="anillo">Anillo</div>
-            <div class="slot" data-tipo="collar">Collar</div>
-            <div class="slot" data-tipo="especial">Especial</div>
-        </div>
-    </div>
-</main>
-
-        <!-- Zona 3: Stats -->
-        <section class="stats-panel">
-            <h3>Estadísticas Totales</h3>
-            <div id="stats-lista">
-                <p>Vida: 0</p>
-                <p>Ataque: 0</p>
+            <div class="layout-personaje">
+                <div class="columna-slots">
+                    <div class="slot" data-tipo="armadura" onclick="abrirModalParaSeleccion('armadura')">Armadura</div>
+                    <div class="slot" data-tipo="casco" onclick="abrirModalParaSeleccion('casco')">Casco</div>
+                </div>
+                <div class="imagen-personaje">👤</div>
+                <div class="columna-slots">
+                    <div class="slot" data-tipo="arma" onclick="abrirModalParaSeleccion('arma')">Arma</div>
+                </div>
             </div>
-        </section>
+        </main>
     </div>
 
+    <!-- Modal Único -->
+    <div id="modal-planner" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal()">&times;</span>
+            <h2 id="modal-titulo">Seleccionar</h2>
+            <input type="text" id="busqueda-modal" placeholder="Filtrar..." oninput="filtrarModal(this.value)">
+            <div id="lista-modal" class="lista-items-modal"></div>
+            
+            <div id="seccion-edicion" style="display:none;">
+                <label>Nivel (+):</label>
+                <input type="number" id="input-nivel" value="0" min="0" max="5">
+                <label>Stats:</label>
+                <input type="text" id="input-stats" placeholder="Ej: +10 Vida">
+                <button onclick="cerrarModal()">Guardar</button>
+            </div>
+        </div>
+    </div>
     <script src="app.js"></script>
-    <!-- Modal de Edición -->
-<div id="modal-planner" class="modal">
-    <div class="modal-contenido">
-        <span class="cerrar" onclick="cerrarModal()">&times;</span>
-        <h2 id="modal-titulo">Seleccionar Ítem</h2>
-        
-        <!-- Esta parte se usará para filtrar -->
-        <input type="text" id="busqueda-modal" placeholder="Buscar..." oninput="filtrarModal(this.value)">
-        
-        <div id="lista-modal" class="lista-items-modal"></div>
-        
-        <!-- Opciones de edición (Ocultas por defecto) -->
-        <div id="seccion-edicion" style="display:none;">
-            <label>Rareza:</label>
-            <select id="select-rareza"><option>Normal</option><option>Raro</option></select>
-            <button onclick="guardarEdicion()">Guardar Cambios</button>
-        </div>
-    </div>
-</div>
-
-        <label>Nivel (+):</label>
-        <input type="number" id="input-nivel" min="0" max="5" value="0">
-
-        <label>Stats:</label>
-        <div id="editor-stats">
-            <input type="text" placeholder="Añadir modificador (ej: +10 Vida)">
-        </div>
-
-        <button onclick="guardarCambios()">Guardar Cambios</button>
-    </div>
-</div>
 </body>
 </html>
