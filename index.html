@@ -37,14 +37,30 @@
             <div id="lista-modal" class="lista-items-modal"></div>
             
             <div id="seccion-edicion" style="display:none;">
-                <label>Nivel (+):</label>
-                <input type="number" id="input-nivel" value="0" min="0" max="5">
-                <label>Stats:</label>
-                <input type="text" id="input-stats" placeholder="Ej: +10 Vida">
-                <button onclick="cerrarModal()">Guardar</button>
-            </div>
+    <div class="editor-layout">
+        <!-- Espacio para la imagen -->
+        <div id="item-preview-img" class="item-img-box">?</div>
+        
+        <div class="editor-controles">
+            <label>Rareza:</label>
+            <select id="select-rareza">
+                <option value="normal">Normal</option>
+                <option value="magico">Mágico</option>
+                <option value="raro">Raro</option>
+                <option value="legendario">Legendario</option>
+            </select>
+
+            <label>Nivel (+):</label>
+            <input type="number" id="input-nivel" min="0" max="5" value="0">
         </div>
     </div>
+
+    <label>Modificadores:</label>
+    <div id="lista-mods-agregados"></div> <!-- Aquí se listarán los stats seleccionados -->
+    <input type="text" id="input-stats" placeholder="Ej: +10 Vida (Presiona Enter)">
+    
+    <button onclick="cerrarModal()">Guardar Cambios</button>
+</div>
     <script src="app.js"></script>
 </body>
 </html>
