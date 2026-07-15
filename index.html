@@ -58,5 +58,30 @@
     </div>
 
     <script src="app.js"></script>
+    <!-- Modal de Edición -->
+<div id="modal-edicion" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <h2 id="titulo-item">Editar Ítem</h2>
+        
+        <label>Rareza:</label>
+        <select id="select-rareza">
+            <option>Normal</option>
+            <option>Mágico</option>
+            <option>Raro</option>
+            <option>Legendario</option>
+        </select>
+
+        <label>Nivel (+):</label>
+        <input type="number" id="input-nivel" min="0" max="5" value="0">
+
+        <label>Stats:</label>
+        <div id="editor-stats">
+            <input type="text" placeholder="Añadir modificador (ej: +10 Vida)">
+        </div>
+
+        <button onclick="guardarCambios()">Guardar Cambios</button>
+    </div>
+</div>
 </body>
 </html>
