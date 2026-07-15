@@ -109,3 +109,37 @@ function filtrarPorTipo(tipo) {
     
     renderizarItems(filtrados);
 }
+
+let slotSeleccionado = null;
+
+function abrirModalParaSeleccion(tipo) {
+    document.getElementById('modal-planner').style.display = "block";
+    document.getElementById('seccion-edicion').style.display = "none";
+    document.getElementById('modal-titulo').innerText = "Seleccionar: " + tipo.toUpperCase();
+    
+    // Filtramos la lista global para mostrar solo los del tipo
+    const filtrados = listaItems.filter(i => i.nombre.toLowerCase().includes(tipo.toLowerCase()));
+    renderizarEnModal(filtrados);
+}
+
+function renderizarEnModal(items) {
+    const contenedor = document.getElementById('lista-modal');
+    contenedor.innerHTML = '';
+    items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'item-card';
+        div.innerText = item.nombre;
+        div.onclick = () => {
+            // Aquí cargamos el ítem y mostramos la edición
+            activarEdicion(item);
+        };
+        contenedor.appendChild(div);
+    });
+}
+
+function activarEdicion(item) {
+    document.getElementById('modal-titulo').innerText = "Editar: " + item.nombre;
+    document.getElementById('lista-modal').style.display = "none";
+    document.getElementById('seccion-edicion').style.display = "block";
+    // Aquí cargarías los stats del ítem...
+}
