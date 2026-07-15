@@ -143,3 +143,11 @@ function activarEdicion(item) {
     document.getElementById('seccion-edicion').style.display = "block";
     // Aquí cargarías los stats del ítem...
 }
+function abrirModal(item) {
+    document.getElementById('modal-planner').style.display = "block";
+    document.getElementById('modal-titulo').innerText = "Editando: " + item.nombre;
+}
+
+function cerrarModal() {
+    document.getElementById('modal-planner').style.display = "none";
+}
