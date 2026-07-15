@@ -67,3 +67,28 @@ function equiparItem(item) {
 }
 // Iniciamos
 cargarDatos();
+
+// Abrir modal al hacer clic en un slot equipado
+function abrirModal(item) {
+    document.getElementById('modal-edicion').style.display = "block";
+    document.getElementById('titulo-item').innerText = "Editando: " + item.nombre;
+}
+
+function cerrarModal() {
+    document.getElementById('modal-edicion').style.display = "none";
+}
+
+// Modificación: cuando equipos un ítem, ahora abrimos el editor
+function equiparItem(item) {
+    const slots = document.querySelectorAll('.slot');
+    for (let slot of slots) {
+        if (slot.innerText === slot.getAttribute('data-tipo') || slot.innerText === item.nombre) {
+            slot.innerText = item.nombre;
+            slot.style.border = "2px solid #00e676";
+            
+            // Al hacer clic, que se abra el editor
+            slot.onclick = () => abrirModal(item); 
+            break;
+        }
+    }
+}
