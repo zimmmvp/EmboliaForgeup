@@ -1,18 +1,10 @@
-let listaItems = [];
-let slotActual = '';
-let itemActual = null;
-let equipoPersonaje = {};
-let tempStatsBase = [];
-let tempMods = [];
+let listaItems = [], slotActual = '', itemActual = null, equipoPersonaje = {}, tempStatsBase = [], tempMods = [];
 const coloresRareza = { "Normal": "#ffffff", "Mágico": "#007bff", "Raro": "#28a745", "Épico": "#ff00ff", "Legendario": "#ff8c00" };
 
 function cargarEstadisticas() {
     const contenedor = document.getElementById('lista-estadisticas');
     LISTA_STATS.forEach(stat => {
-        const div = document.createElement('div');
-        div.className = 'stat-linea';
-        div.innerHTML = `<span>${stat}:</span> <span id="stat-${stat.replace(/ /g, '-')}">0</span>`;
-        contenedor.appendChild(div);
+        contenedor.innerHTML += `<div class="stat-linea"><span>${stat}:</span> <span id="stat-${stat.replace(/ /g, '-')}">0</span></div>`;
     });
 }
 
@@ -26,9 +18,8 @@ function inicializarSelectores() {
 
 function actualizarVisual() {
     const rareza = document.getElementById('select-rareza').value;
-    const nivel = document.getElementById('select-nivel').value;
     document.getElementById('item-preview-box').style.backgroundColor = coloresRareza[rareza];
-    document.getElementById('item-nivel-tag').innerText = nivel;
+    document.getElementById('item-nivel-tag').innerText = document.getElementById('select-nivel').value;
 }
 
 function renderizarStats(containerId, lista, funcName) {
@@ -50,7 +41,7 @@ function abrirModalParaSeleccion(slot) {
     slotActual = slot;
     document.getElementById('modal-planner').style.display = "block";
     if (equipoPersonaje[slotActual]) activarEdicion(equipoPersonaje[slotActual].itemOriginal);
-    else { document.getElementById('pantalla-seleccion').style.display = "block"; document.getElementById('seccion-edicion').style.display = "none"; }
+    else { document.getElementById('pantalla-seleccion').style.display = "block"; document.getElementById('seccion-edicion').style.display = "none"; document.getElementById('modal-titulo').innerText = "Seleccionar Ítem"; }
 }
 
 function filtrarModal(busqueda) {
@@ -78,15 +69,15 @@ function activarEdicion(item) {
     actualizarVisual(); renderizarStats('lista-stats-base', tempStatsBase, 'eliminarStatBase'); renderizarStats('lista-mods-agregados', tempMods, 'eliminarMod');
 }
 
-function resetearItemActual() {
-    document.getElementById('select-nivel').value = "+0"; 
-    document.getElementById('select-rareza').value = "Normal"; 
-    document.getElementById('select-grado').value = "D"; 
-    document.getElementById('input-poder').value = "";
+function desequiparItem() {
+    delete equipoPersonaje[slotActual];
+    const el = document.getElementById('slot-' + slotActual);
+    el.style.borderColor = "#333"; el.innerText = slotActual.charAt(0).toUpperCase() + slotActual.slice(1);
+    actualizarEstadisticasGlobales();
+    document.getElementById('pantalla-seleccion').style.display = "block"; 
+    document.getElementById('seccion-edicion').style.display = "none";
+    document.getElementById('modal-titulo').innerText = "Seleccionar Ítem";
     tempStatsBase = []; tempMods = [];
-    renderizarStats('lista-stats-base', tempStatsBase, 'eliminarStatBase'); 
-    renderizarStats('lista-mods-agregados', tempMods, 'eliminarMod');
-    actualizarVisual();
 }
 
 function guardarYEquipar() {
