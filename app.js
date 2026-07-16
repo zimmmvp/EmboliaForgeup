@@ -22,10 +22,20 @@ function inicializarSelectores() {
     });
     const niveles = ["+0", "+1", "+2", "+3", "+4", "+5"];
     const rarezas = ["Normal", "Mágico", "Raro", "Épico", "Legendario"];
-    const grados = ["D", "C", "B", "A"];
+    const grados = ["D", "C", "B", "A", "S"];
     niveles.forEach(n => document.getElementById('select-nivel').innerHTML += `<option>${n}</option>`);
     rarezas.forEach(r => document.getElementById('select-rareza').innerHTML += `<option>${r}</option>`);
     grados.forEach(g => document.getElementById('select-grado').innerHTML += `<option>${g}</option>`);
+}
+
+function actualizarVisual() {
+    const rareza = document.getElementById('select-rareza').value;
+    const nivel = document.getElementById('select-nivel').value;
+    const box = document.getElementById('item-preview-box');
+    const tag = document.getElementById('item-nivel-tag');
+    const colores = { "Normal": "#ffffff", "Mágico": "#007bff", "Raro": "#28a745", "Épico": "#ff00ff", "Legendario": "#ff8c00" };
+    box.style.backgroundColor = colores[rareza] || "#ffffff";
+    tag.innerText = nivel;
 }
 
 function agregarStatBase() {
@@ -56,10 +66,7 @@ async function cargarDatos() { try { const res = await fetch('data/item.txt'); c
 
 function abrirModalParaSeleccion(tipo) { document.getElementById('modal-planner').style.display = "block"; document.getElementById('seccion-edicion').style.display = "none"; document.getElementById('pantalla-seleccion').style.display = "block"; const contenedor = document.getElementById('lista-modal'); contenedor.innerHTML = ''; listaItems.forEach(item => { const div = document.createElement('div'); div.className = 'item-card'; div.innerText = item.nombre; div.onclick = () => activarEdicion(item); contenedor.appendChild(div); }); }
 
-function filtrarPorTipo(tipo) { tipoSeleccionado = tipo; filtrarModal(document.getElementById('busqueda-modal').value); }
-function filtrarModal(texto) { const busqueda = texto.toLowerCase(); const items = document.getElementsByClassName('item-card'); for (let item of items) { const nombre = item.innerText.toLowerCase(); const coincideNombre = nombre.includes(busqueda); const coincideTipo = (tipoSeleccionado === 'todo' || nombre.includes(tipoSeleccionado)); item.style.display = (coincideNombre && coincideTipo) ? "" : "none"; } }
-
-function activarEdicion(item) { document.getElementById('modal-titulo').innerText = "Editar: " + item.nombre; document.getElementById('pantalla-seleccion').style.display = "none"; document.getElementById('seccion-edicion').style.display = "block"; }
+function activarEdicion(item) { document.getElementById('modal-titulo').innerText = "Editar: " + item.nombre; document.getElementById('pantalla-seleccion').style.display = "none"; document.getElementById('seccion-edicion').style.display = "block"; actualizarVisual(); }
 function cerrarModal() { document.getElementById('modal-planner').style.display = "none"; }
 
 cargarDatos();
