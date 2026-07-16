@@ -13,19 +13,19 @@
             <h2>Equipamiento</h2>
             <div class="personaje-grid">
                 <div class="col-slots">
-                    <div class="slot" data-tipo="casco" onclick="abrirModalParaSeleccion('casco')">Casco</div>
-                    <div class="slot" data-tipo="armadura" onclick="abrirModalParaSeleccion('armadura')">Armadura</div>
-                    <div class="slot" data-tipo="guantes" onclick="abrirModalParaSeleccion('guantes')">Guantes</div>
-                    <div class="slot" data-tipo="arma" onclick="abrirModalParaSeleccion('arma')">Arma</div>
-                    <div class="slot" data-tipo="pico" onclick="abrirModalParaSeleccion('pico')">Pico</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('casco')">Casco</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('armadura')">Armadura</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('guantes')">Guantes</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('arma')">Arma</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('pico')">Pico</div>
                 </div>
                 <div class="centro-personaje"><div class="imagen-personaje">👤</div></div>
                 <div class="col-slots">
-                    <div class="slot" data-tipo="collar" onclick="abrirModalParaSeleccion('collar')">Collar</div>
-                    <div class="slot" data-tipo="anillo" onclick="abrirModalParaSeleccion('anillo')">Anillo</div>
-                    <div class="slot" data-tipo="botas" onclick="abrirModalParaSeleccion('botas')">Botas</div>
-                    <div class="slot" data-tipo="arma-der" onclick="abrirModalParaSeleccion('arma')">Arma</div>
-                    <div class="slot" data-tipo="alas" onclick="abrirModalParaSeleccion('alas')">Alas</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('collar')">Collar</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('anillo')">Anillo</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('botas')">Botas</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('arma-der')">Arma</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('alas')">Alas</div>
                 </div>
             </div>
         </main>
@@ -41,10 +41,6 @@
                     <button onclick="filtrarPorTipo('todo')">Todo</button>
                     <button onclick="filtrarPorTipo('arma')">Armas</button>
                     <button onclick="filtrarPorTipo('espada')">Espadas</button>
-                    <button onclick="filtrarPorTipo('daga')">Dagas</button>
-                    <button onclick="filtrarPorTipo('baston')">Bastones</button>
-                    <button onclick="filtrarPorTipo('escudo')">Escudos</button>
-                    <button onclick="filtrarPorTipo('casco')">Cascos</button>
                 </div>
                 <input type="text" id="busqueda-modal" placeholder="Filtrar por nombre..." oninput="filtrarModal(this.value)">
                 <div id="lista-modal" class="lista-items-modal"></div>
@@ -65,13 +61,20 @@
                         <div class="bloque-stats">
                             <h3>Stats Base</h3>
                             <div id="lista-stats-base"></div>
-                            <div style="display:flex; gap:5px;"><select id="new-stat-tipo"></select><input type="number" id="new-stat-valor" style="width:50px;"><button onclick="agregarStatBase()">+</button></div>
+                            <div class="agregar-box">
+                                <select id="new-stat-tipo"></select>
+                                <input type="number" id="new-stat-valor">
+                                <button onclick="agregarStatBase()">+</button>
+                            </div>
                         </div>
-                        <hr style="margin: 15px 0;">
                         <div class="bloque-mods">
                             <h3>Modificadores</h3>
                             <div id="lista-mods-agregados"></div>
-                            <div style="display: flex; gap: 5px; margin-top:5px;"><select id="select-mods"></select><input type="number" id="input-valor-mod" placeholder="Valor" style="width: 60px;"><button onclick="agregarModSeleccionado()">Agregar</button></div>
+                            <div class="agregar-box">
+                                <select id="select-mods"></select>
+                                <input type="number" id="input-valor-mod" placeholder="Val">
+                                <button onclick="agregarModSeleccionado()">+</button>
+                            </div>
                         </div>
                     </div>
                 </div>
