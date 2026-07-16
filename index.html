@@ -7,35 +7,31 @@
 </head>
 <body>
     <header><h1>⚔️ Build Planner - Battle For Embolia 🛡️</h1></header>
-    
     <div class="main-layout">
         <aside class="col-habilidades"><h2>Habilidades</h2></aside>
-        
         <main class="col-equipamiento">
             <h2>Equipamiento</h2>
             <div class="personaje-grid">
                 <div class="col-slots">
-                    <div class="slot" onclick="abrirModalParaSeleccion('casco', 'casco')">Casco</div>
-                    <div class="slot" onclick="abrirModalParaSeleccion('armadura', 'armadura')">Armadura</div>
-                    <div class="slot" onclick="abrirModalParaSeleccion('guantes', 'guantes')">Guantes</div>
-                    <div class="slot" onclick="abrirModalParaSeleccion('arma', 'arma')">Arma</div>
-                    <div class="slot" onclick="abrirModalParaSeleccion('pico', 'pico')">Pico</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('casco')">Casco</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('armadura')">Armadura</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('guantes')">Guantes</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('arma')">Arma</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('pico')">Pico</div>
                 </div>
                 <div class="centro-personaje">👤</div>
                 <div class="col-slots">
-                    <div class="slot" onclick="abrirModalParaSeleccion('collar', 'collar')">Collar</div>
-                    <div class="slot" onclick="abrirModalParaSeleccion('anillo', 'anillo')">Anillo</div>
-                    <div class="slot" onclick="abrirModalParaSeleccion('botas', 'botas')">Botas</div>
-                    <div class="slot" onclick="abrirModalParaSeleccion('arma-der', 'arma-der')">Arma</div>
-                    <div class="slot" onclick="abrirModalParaSeleccion('alas', 'alas')">Alas</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('collar')">Collar</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('anillo')">Anillo</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('botas')">Botas</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('arma-der')">Arma</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('alas')">Alas</div>
                 </div>
             </div>
         </main>
-        
-        <aside class="col-estadisticas"><h2>Estadísticas</h2><div id="lista-estadisticas"></div></aside>
+        <aside class="col-estadisticas"><h2>Estadísticas</h2></aside>
     </div>
 
-    <!-- MODAL -->
     <div id="modal-planner" class="modal">
         <div class="modal-contenido">
             <span class="cerrar" onclick="cerrarModal()">&times;</span>
@@ -45,13 +41,18 @@
                 <div id="lista-modal" class="lista-items-modal"></div>
             </div>
             <div id="seccion-edicion" style="display:none;">
-                <!-- Aquí iría tu formulario de edición -->
-                <button onclick="cerrarModal()">Guardar</button>
+                <div class="modal-grid">
+                    <div class="controles-form">
+                        <label>Nivel:</label><select id="select-nivel"></select>
+                        <label>Rareza:</label><select id="select-rareza"></select>
+                        <label>Grado:</label><select id="select-grado"></select>
+                        <label>Poder:</label><input type="number" id="input-poder">
+                    </div>
+                </div>
+                <button onclick="cerrarModal()" style="margin-top:20px; width:100%;">Guardar y Cerrar</button>
             </div>
         </div>
     </div>
-
-    <script src="config.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
