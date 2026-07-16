@@ -7,28 +7,31 @@
 </head>
 <body>
     <header><h1>⚔️ Build Planner - Battle For Embolia 🛡️</h1></header>
+    
     <div class="main-layout">
-        <aside class="col-habilidades"><h2>Habilidades</h2><div id="lista-habilidades"></div></aside>
+        <aside class="col-habilidades"><h2>Habilidades</h2></aside>
+        
         <main class="col-equipamiento">
             <h2>Equipamiento</h2>
             <div class="personaje-grid">
                 <div class="col-slots">
-                    <div class="slot" data-slot="casco" onclick="abrirModalParaSeleccion('casco', 'casco')">Casco</div>
-                    <div class="slot" data-slot="armadura" onclick="abrirModalParaSeleccion('armadura', 'armadura')">Armadura</div>
-                    <div class="slot" data-slot="guantes" onclick="abrirModalParaSeleccion('guantes', 'guantes')">Guantes</div>
-                    <div class="slot" data-slot="arma" onclick="abrirModalParaSeleccion('arma', 'arma')">Arma</div>
-                    <div class="slot" data-slot="pico" onclick="abrirModalParaSeleccion('pico', 'pico')">Pico</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('casco', 'casco')">Casco</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('armadura', 'armadura')">Armadura</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('guantes', 'guantes')">Guantes</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('arma', 'arma')">Arma</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('pico', 'pico')">Pico</div>
                 </div>
-                <div class="centro-personaje"><div class="imagen-personaje">👤</div></div>
+                <div class="centro-personaje">👤</div>
                 <div class="col-slots">
-                    <div class="slot" data-slot="collar" onclick="abrirModalParaSeleccion('collar', 'collar')">Collar</div>
-                    <div class="slot" data-slot="anillo" onclick="abrirModalParaSeleccion('anillo', 'anillo')">Anillo</div>
-                    <div class="slot" data-slot="botas" onclick="abrirModalParaSeleccion('botas', 'botas')">Botas</div>
-                    <div class="slot" data-slot="arma-der" onclick="abrirModalParaSeleccion('arma-der', 'arma-der')">Arma</div>
-                    <div class="slot" data-slot="alas" onclick="abrirModalParaSeleccion('alas', 'alas')">Alas</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('collar', 'collar')">Collar</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('anillo', 'anillo')">Anillo</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('botas', 'botas')">Botas</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('arma-der', 'arma-der')">Arma</div>
+                    <div class="slot" onclick="abrirModalParaSeleccion('alas', 'alas')">Alas</div>
                 </div>
             </div>
         </main>
+        
         <aside class="col-estadisticas"><h2>Estadísticas</h2><div id="lista-estadisticas"></div></aside>
     </div>
 
@@ -42,25 +45,12 @@
                 <div id="lista-modal" class="lista-items-modal"></div>
             </div>
             <div id="seccion-edicion" style="display:none;">
-                <div class="modal-grid">
-                    <div class="col-center">
-                        <div id="item-preview-box" class="item-preview-box"><img id="item-preview-img" src="" alt=""><div id="item-nivel-tag" class="item-nivel-tag">+0</div></div>
-                        <div class="controles-form">
-                            <select id="select-nivel" onchange="actualizarVisual()"></select>
-                            <select id="select-rareza" onchange="actualizarVisual()"></select>
-                            <select id="select-grado"></select>
-                            <input type="number" id="input-poder" placeholder="Poder">
-                        </div>
-                    </div>
-                    <div class="col-stats">
-                        <div class="bloque-stats"><h3>Stats Base</h3><div id="lista-stats-base"></div><div class="agregar-box"><select id="new-stat-tipo"></select><input type="number" id="new-stat-valor" placeholder="Val"><button onclick="agregarStatBase()">+</button></div></div>
-                        <div class="bloque-mods"><h3>Modificadores</h3><div id="lista-mods-agregados"></div><div class="agregar-box"><select id="select-mods"></select><input type="number" id="input-valor-mod" placeholder="Val"><button onclick="agregarModSeleccionado()">+</button></div></div>
-                    </div>
-                </div>
-                <button onclick="guardarYEquipar()" style="width: 100%; margin-top: 20px; padding: 10px;">Guardar y Equipar</button>
+                <!-- Aquí iría tu formulario de edición -->
+                <button onclick="cerrarModal()">Guardar</button>
             </div>
         </div>
     </div>
+
     <script src="config.js"></script>
     <script src="app.js"></script>
 </body>
