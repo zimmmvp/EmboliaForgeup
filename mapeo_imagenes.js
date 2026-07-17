@@ -3,8 +3,8 @@ const MAPEO_IMAGENES = {
     "2": "", // Armadura Pesada de Ciruja
     "3": "gloves1-sharedassets1.assets-416.png", // Guantes de Ciruja
     "4": "boots1-sharedassets1.assets-225.png", // Botas de Ciruja
-    "5": "", // Casco de Ciruja
-    "6": "", // Túnica Ciruja
+    "5": "helmet1-sharedassets1.assets-281.png", // Casco de Ciruja
+    "6": "heavy-sharedassets1.assets-192.png", // Túnica Ciruja
     "7": "", // Anillo de Ciruja
     "8": "", // Collar de Ciruja
     "9": "", // Armadura Ligera de Ciruja
@@ -15,10 +15,10 @@ const MAPEO_IMAGENES = {
     "14": "", // Espada Metálica
     "15": "", // Maso Metálica
     "16": "", // Báculo Metálica
-    "17": "", // Armadura gigante
+    "17": "heavy2-sharedassets1.assets-406.png", // Armadura gigante
     "18": "glovesHeavy2-sharedassets1.assets-597.png", // Guantes gigantes
     "19": "bootsHeavy2-sharedassets1.assets-221.png", // Botas Gigantes
-    "20": "", // Casco Gigante
+    "20": "helmetHeavy2-sharedassets1.assets-483.png", // Casco Gigante
     "21": "", // Armadura de la suerte
     "22": "glovesLight2-sharedassets1.assets-301.png", // Guantes de la suerte
     "23": "bootsLight2-sharedassets1.assets-558.png", // Botas de la suerte
@@ -36,10 +36,10 @@ const MAPEO_IMAGENES = {
     "35": "", // Cazador de Hongos
     "36": "", // Cazador de Serpientes Grandes
     "37": "", // Cazador de Gugas
-    "38": "", // Armadura Imperial
+    "38": "heavy3-sharedassets1.assets-375.png", // Armadura Imperial
     "39": "glovesHeavy3-sharedassets1.assets-299.png", // Guantes Imperiales
     "40": "bootsHeavy3-sharedassets1.assets-188.png", // Botas Imperiales
-    "41": "", // Casco Imperial
+    "41": "helmetHeavy3-sharedassets1.assets-228.png", // Casco Imperial
     "42": "", // Armadura Elegante
     "43": "glovesLight3-sharedassets1.assets-431.png", // Guantes elegantes
     "44": "bootsLight3-sharedassets1.assets-456.png", // Botas Elegantes
@@ -74,7 +74,7 @@ const MAPEO_IMAGENES = {
     "73": "", // Cazador de Inchabolus
     "74": "", // Jefa Moira Kazzan
     "75": "", // Anillo de Moira Kazzan
-    "76": "", // La pesada armadura de Majul.
+    "76": "heavy4-sharedassets1.assets-525.png", // La pesada armadura de Majul.
     "77": "glovesHeavy4-sharedassets1.assets-535.png", // Los guantes pesados de Majul.
     "78": "bootsHeavy4-sharedassets1.assets-584.png", // Las pesadas botas de Majul.
     "79": "", // El pesado casco de Majul.
@@ -92,7 +92,7 @@ const MAPEO_IMAGENES = {
     "91": "", // Jefe Majul
     "94": "", // Jefe Maestruli
     "95": "", // La Corona de Maestruli
-    "96": "", // Armadura pesada de Doom
+    "96": "heavy5-sharedassets1.assets-615.png", // Armadura pesada de Doom
     "97": "glovesHeavy5-sharedassets1.assets-176.png", // Guantes pesados de Doom
     "98": "bootsHeavy5-sharedassets1.assets-627.png", // Botas pesadas de Doom
     "99": "", // Casco pesado de Doom
@@ -104,7 +104,7 @@ const MAPEO_IMAGENES = {
     "105": "glovesRobe5-sharedassets1.assets-459.png", // Guantes de túnica de la perdición
     "106": "bootsRobe5-sharedassets1.assets-632.png", // Botas de túnica de la perdición
     "107": "", // Túnica de la fatalidad casco
-    "108": "", // Armadura pesada de hielo
+    "108": "heavy6-sharedassets1.assets-424.png", // Armadura pesada de hielo
     "109": "glovesHeavy6-sharedassets1.assets-231.png", // Guantes pesados de hielo.
     "110": "bootsHeavy6-sharedassets1.assets-197.png", // Botas pesadas de hielo.
     "111": "", // Casco pesado de hielo
@@ -116,7 +116,7 @@ const MAPEO_IMAGENES = {
     "117": "glovesRobe6-sharedassets1.assets-177.png", // Guantes de la túnica Infernus
     "118": "bootsRobe6-sharedassets1.assets-551.png", // Botas de la túnica del Infierno
     "119": "", // Casco de túnica Infernus
-    "120": "", // Armadura pesada mutante
+    "120": "heavy7-sharedassets1.assets-563.png", // Armadura pesada mutante
     "121": "glovesHeavy7-sharedassets1.assets-452.png", // Guantes pesados mutantes
     "122": "bootsHeavy7-sharedassets1.assets-284.png", // Botas pesadas mutantes
     "123": "", // Casco pesado mutante
