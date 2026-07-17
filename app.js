@@ -91,7 +91,8 @@ function desequiparItem() {
     delete equipoPersonaje[slotActual];
     const el = document.getElementById('slot-' + slotActual);
     el.style.borderColor = "#333"; 
-    el.style.backgroundImage = "none"; // Limpiar imagen al desequipar
+    el.style.backgroundColor = "#1a1a1e";
+    el.style.backgroundImage = "none"; 
     el.innerText = slotActual.charAt(0).toUpperCase() + slotActual.slice(1);
     actualizarEstadisticasGlobales();
     document.getElementById('pantalla-seleccion').style.display = "block"; 
@@ -106,17 +107,24 @@ function guardarYEquipar() {
     const info = equipoPersonaje[slotActual];
     const nombreArchivo = typeof MAPEO_IMAGENES !== 'undefined' ? MAPEO_IMAGENES[itemActual.id] : null;
 
+    el.style.backgroundColor = coloresRareza[info.rareza];
+    el.style.borderColor = "#fff";
+
+    el.innerHTML = `
+        <div style="height:100%; position:relative;">
+            <div style="position:absolute; bottom:2px; right:4px; background:black; color:white; padding:0 4px; border-radius:3px; font-size:11px; font-weight:bold;">
+                ${info.nivel}
+            </div>
+        </div>
+    `;
+
     if (nombreArchivo) {
         el.style.backgroundImage = `url('img/${nombreArchivo}')`;
         el.style.backgroundSize = "contain";
         el.style.backgroundRepeat = "no-repeat";
         el.style.backgroundPosition = "center";
-        el.innerHTML = `<div style="height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:4px;"><div style="font-size:9px; font-weight:bold; background:rgba(0,0,0,0.5);">${info.nombre}</div><div style="text-align:right; font-size:10px; font-weight:bold; color:${coloresRareza[info.rareza]}; background:rgba(0,0,0,0.5);">${info.nivel}</div></div>`;
-    } else {
-        el.innerHTML = `<div style="height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:4px;"><div style="font-size:9px; font-weight:bold;">${info.nombre}</div><div style="text-align:right; font-size:10px; font-weight:bold; color:${coloresRareza[info.rareza]}">${info.nivel}</div></div>`;
     }
 
-    el.style.borderColor = coloresRareza[info.rareza];
     actualizarEstadisticasGlobales(); 
     cerrarModal();
 }
