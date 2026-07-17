@@ -15,8 +15,8 @@
             <button onclick="cambiarPersonaje('Ninja')">Ninja</button>
         </div>
 
-        <div id="contenedor-imagen">
-            <!-- Espacio reservado para tu imagen -->
+        <div id="contenedor-iconos-personajes">
+            <!-- Espacio reservado para tus iconos aquí -->
         </div>
     </header>
     
@@ -33,7 +33,9 @@
                     <div class="slot" id="slot-arma" onclick="abrirModalParaSeleccion('arma')">ARMA</div>
                     <div class="slot" id="slot-pico" onclick="abrirModalParaSeleccion('pico')">PICO</div>
                 </div>
+                
                 <div class="centro-personaje">👤</div>
+                
                 <div class="col-slots">
                     <div class="slot" id="slot-collar" onclick="abrirModalParaSeleccion('collar')">COLLAR</div>
                     <div class="slot" id="slot-anillo" onclick="abrirModalParaSeleccion('anillo')">ANILLO</div>
@@ -56,7 +58,7 @@
                 <div id="lista-modal" class="lista-items-modal"></div>
             </div>
             <div id="seccion-edicion" style="display:none;">
-                <!-- ... contenido del editor ... -->
+                <!-- Contenido del editor -->
                 <button onclick="desequiparItem()">Desequipar</button>
                 <button onclick="guardarYEquipar()">Guardar</button>
             </div>
