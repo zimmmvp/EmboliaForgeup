@@ -1,5 +1,6 @@
 let listaItems = [], slotActual = '', itemActual = null, equipoPersonaje = {}, tempStatsBase = [], tempMods = [];
 let personajeActual = "Guerrero Zombie";
+
 const DATOS_PERSONAJES = {
     "Guerrero Zombie": { equipo: {} },
     "Mago Oscuro": { equipo: {} },
@@ -8,7 +9,6 @@ const DATOS_PERSONAJES = {
 
 const coloresRareza = { "Normal": "#ffffff", "Mágico": "#007bff", "Raro": "#28a745", "Épico": "#ff00ff", "Legendario": "#ff8c00" };
 
-// --- Lógica de Personajes ---
 function cambiarPersonaje(nombre) {
     DATOS_PERSONAJES[personajeActual].equipo = { ...equipoPersonaje };
     personajeActual = nombre;
@@ -23,7 +23,7 @@ function limpiarSlots() {
         slot.style.borderColor = "#333";
         slot.style.backgroundColor = "#1a1a1e";
         slot.style.backgroundImage = "none";
-        slot.innerText = slot.id.replace('slot-', '').toUpperCase();
+        slot.innerHTML = slot.id.replace('slot-', '').toUpperCase();
     });
 }
 
@@ -35,6 +35,7 @@ function cargarEquipoEnSlots() {
 
 function dibujarSlot(slot, info) {
     const el = document.getElementById('slot-' + slot);
+    if(!el) return;
     const nombreArchivo = typeof MAPEO_IMAGENES !== 'undefined' ? MAPEO_IMAGENES[info.itemOriginal.id] : null;
     el.style.backgroundColor = coloresRareza[info.rareza];
     el.style.borderColor = "#fff";
@@ -47,7 +48,6 @@ function dibujarSlot(slot, info) {
     }
 }
 
-// --- Funciones existentes (mantenidas) ---
 async function cargarDatos() {
     try {
         const res = await fetch('data/item.txt');
@@ -56,16 +56,26 @@ async function cargarDatos() {
     } catch (e) { console.error("Error al cargar datos"); }
 }
 
+function filtrarModal(busqueda) {
+    const cont = document.getElementById('lista-modal');
+    cont.innerHTML = '';
+    listaItems.filter(i => i.nombre.toLowerCase().includes(busqueda.toLowerCase())).forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'item-card'; div.innerText = item.nombre;
+        div.onclick = () => activarEdicion(item);
+        cont.appendChild(div);
+    });
+}
+
 function abrirModalParaSeleccion(slot) {
     slotActual = slot;
     document.getElementById('modal-planner').style.display = "block";
     if (equipoPersonaje[slotActual]) {
         activarEdicion(equipoPersonaje[slotActual].itemOriginal);
-    } else { 
-        document.getElementById('pantalla-seleccion').style.display = "block"; 
-        document.getElementById('seccion-edicion').style.display = "none"; 
-        document.getElementById('modal-titulo').innerText = "Seleccionar: " + slot.toUpperCase(); 
-        filtrarPorSlot(slot); 
+    } else {
+        document.getElementById('pantalla-seleccion').style.display = "block";
+        document.getElementById('seccion-edicion').style.display = "none";
+        filtrarPorSlot(slot);
     }
 }
 
@@ -88,18 +98,11 @@ function filtrarPorSlot(slot) {
 function guardarYEquipar() {
     equipoPersonaje[slotActual] = { itemOriginal: itemActual, nombre: itemActual.nombre, nivel: document.getElementById('select-nivel').value, rareza: document.getElementById('select-rareza').value, grado: document.getElementById('select-grado').value, poder: document.getElementById('input-poder').value, statsBase: [...tempStatsBase], modificadores: [...tempMods] };
     dibujarSlot(slotActual, equipoPersonaje[slotActual]);
-    actualizarEstadisticasGlobales(); 
-    cerrarModal();
-}
-
-function desequiparItem() {
-    delete equipoPersonaje[slotActual];
-    limpiarSlots();
-    cargarEquipoEnSlots();
     actualizarEstadisticasGlobales();
     cerrarModal();
 }
 
-// ... (El resto de funciones: activarEdicion, actualizarEstadisticasGlobales, etc. permanecen igual) ...
+function cerrarModal() { document.getElementById('modal-planner').style.display = "none"; }
 
-cargarDatos(); cargarEstadisticas(); inicializarSelectores();
+// Carga inicial
+cargarDatos();
