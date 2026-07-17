@@ -42,7 +42,7 @@ const MAPEO_IMAGENES = {
     "41": "", // Casco Imperial
     "42": "", // Armadura Elegante
     "43": "", // Guantes elegantes
-    "44": "bootsLight2-sharedassets1.assets-558.png", // Botas Elegantes
+    "44": "bootsLight3-sharedassets1.assets-456.png‎", // Botas Elegantes
     "45": "", // Casco Elegante
     "46": "", // Armadura de mago
     "47": "", // Guantes de mago
