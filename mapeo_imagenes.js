@@ -17,7 +17,7 @@ const MAPEO_IMAGENES = {
     "16": "", // Báculo Metálica
     "17": "", // Armadura gigante
     "18": "", // Guantes gigantes
-    "19": "‎bootsHeavy2-sharedassets1.assets-221.png", // Botas Gigantes
+    "19": "bootsHeavy2-sharedassets1.assets-221.png", // Botas Gigantes
     "20": "", // Casco Gigante
     "21": "", // Armadura de la suerte
     "22": "", // Guantes de la suerte
@@ -25,7 +25,7 @@ const MAPEO_IMAGENES = {
     "24": "", // Casco de la suerte
     "25": "", // Túnica de sombras
     "26": "", // Guantes de Sombra
-    "27": "", // Botas de sombra
+    "27": "bootsRobe2-sharedassets1.assets-616.png", // Botas de sombra
     "28": "", // Casco de sombra
     "29": "", // Anillo de Plata
     "30": "", // Collar de plata
@@ -42,11 +42,11 @@ const MAPEO_IMAGENES = {
     "41": "", // Casco Imperial
     "42": "", // Armadura Elegante
     "43": "", // Guantes elegantes
-    "44": "bootsLight3-sharedassets1.assets-456.png‎", // Botas Elegantes
+    "44": "bootsLight3-sharedassets1.assets-456.png", // Botas Elegantes
     "45": "", // Casco Elegante
     "46": "", // Armadura de mago
     "47": "", // Guantes de mago
-    "48": "", // Botas de mago
+    "48": "bootsRobe2-sharedassets1.assets-616.png", // Botas de mago
     "49": "", // Casco de mago
     "50": "", // Anillo Imperial
     "51": "", // Collar Imperial
@@ -76,15 +76,15 @@ const MAPEO_IMAGENES = {
     "75": "", // Anillo de Moira Kazzan
     "76": "", // La pesada armadura de Majul.
     "77": "", // Los guantes pesados de Majul.
-    "78": "bootsHeavy4-sharedassets1.assets-584.png‎", // Las pesadas botas de Majul.
+    "78": "bootsHeavy4-sharedassets1.assets-584.png", // Las pesadas botas de Majul.
     "79": "", // El pesado casco de Majul.
     "80": "", // La armadura ligera de Majul.
     "81": "", // Los guantes ligeros de Majul.
-    "82": "bootsLight4-sharedassets1.assets-230.png‎", // Las botas ligeras de Majul.
+    "82": "bootsLight4-sharedassets1.assets-230.png", // Las botas ligeras de Majul.
     "83": "", // El casco ligero de Majul.
     "84": "", // La túnica de Majul.
     "85": "", // Los guantes de la túnica de Majul.
-    "86": "", // Botas de la túnica de Majul
+    "86": "bootsRobe4-sharedassets1.assets-549.png", // Botas de la túnica de Majul
     "87": "", // El casco de la túnica de Majul.
     "88": "", // Cazador de sirvientes Majul
     "89": "", // Cazador de guardabosques Majul
@@ -94,39 +94,39 @@ const MAPEO_IMAGENES = {
     "95": "", // La Corona de Maestruli
     "96": "", // Armadura pesada de Doom
     "97": "", // Guantes pesados de Doom
-    "98": "bootsHeavy5-sharedassets1.assets-627.png‎", // Botas pesadas de Doom
+    "98": "bootsHeavy5-sharedassets1.assets-627.png", // Botas pesadas de Doom
     "99": "", // Casco pesado de Doom
     "100": "", // Armadura ligera de Doom
     "101": "", // Guantes de luz de la perdición.
-    "102": "bootsLight4-sharedassets1.assets-230.png‎", // Botas ligeras de Doom
+    "102": "bootsLight5-sharedassets1.assets-243.png", // Botas ligeras de Doom
     "103": "", // Casco ligero de Doom
     "104": "", // Armadura de túnica de la perdición
     "105": "", // Guantes de túnica de la perdición
-    "106": "", // Botas de túnica de la perdición
+    "106": "bootsRobe5-sharedassets1.assets-632.png", // Botas de túnica de la perdición
     "107": "", // Túnica de la fatalidad casco
     "108": "", // Armadura pesada de hielo
     "109": "", // Guantes pesados de hielo.
-    "110": "bootsHeavy6-sharedassets1.assets-197.png‎", // Botas pesadas de hielo.
+    "110": "bootsHeavy6-sharedassets1.assets-197.png", // Botas pesadas de hielo.
     "111": "", // Casco pesado de hielo
     "112": "", // Armadura ligera de relámpago
     "113": "", // Guantes de luz relámpago
-    "114": "", // Botas ligeras de rayo
+    "114": "bootsLight6-sharedassets1.assets-475.png", // Botas ligeras de rayo
     "115": "", // Casco de luz relámpago
     "116": "", // Armadura de túnica Infernus
     "117": "", // Guantes de la túnica Infernus
-    "118": "", // Botas de la túnica del Infierno
+    "118": "bootsRobe6-sharedassets1.assets-551.png", // Botas de la túnica del Infierno
     "119": "", // Casco de túnica Infernus
     "120": "", // Armadura pesada mutante
     "121": "", // Guantes pesados mutantes
-    "122": "bootsHeavy7-sharedassets1.assets-284.png‎", // Botas pesadas mutantes
+    "122": "bootsHeavy7-sharedassets1.assets-284.png", // Botas pesadas mutantes
     "123": "", // Casco pesado mutante
     "124": "", // Armadura ligera mutante
     "125": "", // Guantes de luz mutantes
-    "126": "", // Botas de luz mutantes
+    "126": "bootsLight7-sharedassets1.assets-389.png", // Botas de luz mutantes
     "127": "", // Casco de luz mutante
     "128": "", // Armadura de túnica mutante
     "129": "", // Guantes de túnica mutante
-    "130": "", // Botas de túnica mutante
+    "130": "bootsRobe7-sharedassets1.assets-399.png", // Botas de túnica mutante
     "131": "", // Casco de túnica mutante
     "132": "", // Espada demoníaca
     "133": "", // Hacha demoníaca.
@@ -142,10 +142,10 @@ const MAPEO_IMAGENES = {
     "143": "", // Anillo del Rey Basado en Uber
     "144": "", // Anillo Majul de Uber
     "145": "", // La Corona de Maestruli de Uber
-    "146": "1-sharedassets1.assets-593.png", // Alas de Viento
+    "146": "", // Alas de Viento
     "147": "", // Isabella Jefa
     "148": "", // Anillo de Isabelle
-    "149": "2-sharedassets1.assets-390.png", // Alas de Sangre
+    "149": "", // Alas de Sangre
     "150": "", // Anillo Sakala
     "167": "", // Merluza Verde
     "168": "", // Pez Azul
@@ -163,5 +163,5 @@ const MAPEO_IMAGENES = {
     "180": "", // Jefe La Wea
     "181": "", // Rob del jefe del bloque
     "182": "", // Anillo de Rob
-    "183": "" // Botas de Rob
+    "183": "bootsRob-sharedassets1.assets-427.png" // Botas de Rob
 };
