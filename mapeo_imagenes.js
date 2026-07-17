@@ -142,10 +142,10 @@ const MAPEO_IMAGENES = {
     "143": "", // Anillo del Rey Basado en Uber
     "144": "", // Anillo Majul de Uber
     "145": "", // La Corona de Maestruli de Uber
-    "146": "", // Alas de Viento
+    "146": "1-sharedassets1.assets-593.png", // Alas de Viento
     "147": "", // Isabella Jefa
     "148": "", // Anillo de Isabelle
-    "149": "", // Alas de Sangre
+    "149": "2-sharedassets1.assets-390.png", // Alas de Sangre
     "150": "", // Anillo Sakala
     "167": "", // Merluza Verde
     "168": "", // Pez Azul
