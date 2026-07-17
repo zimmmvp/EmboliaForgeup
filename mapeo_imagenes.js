@@ -2,7 +2,7 @@ const MAPEO_IMAGENES = {
     "1": "", // Espada Chota
     "2": "", // Armadura Pesada de Ciruja
     "3": "", // Guantes de Ciruja
-    "4": "", // Botas de Ciruja
+    "4": "boots1-sharedassets1.assets-225.png", // Botas de Ciruja
     "5": "", // Casco de Ciruja
     "6": "", // Túnica Ciruja
     "7": "", // Anillo de Ciruja
