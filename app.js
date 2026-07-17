@@ -91,6 +91,7 @@ function desequiparItem() {
     delete equipoPersonaje[slotActual];
     const el = document.getElementById('slot-' + slotActual);
     el.style.borderColor = "#333"; 
+    el.style.backgroundImage = "none"; // Limpiar imagen al desequipar
     el.innerText = slotActual.charAt(0).toUpperCase() + slotActual.slice(1);
     actualizarEstadisticasGlobales();
     document.getElementById('pantalla-seleccion').style.display = "block"; 
@@ -103,9 +104,21 @@ function guardarYEquipar() {
     equipoPersonaje[slotActual] = { itemOriginal: itemActual, nombre: itemActual.nombre, nivel: document.getElementById('select-nivel').value, rareza: document.getElementById('select-rareza').value, grado: document.getElementById('select-grado').value, poder: document.getElementById('input-poder').value, statsBase: [...tempStatsBase], modificadores: [...tempMods] };
     const el = document.getElementById('slot-' + slotActual);
     const info = equipoPersonaje[slotActual];
+    const nombreArchivo = typeof MAPEO_IMAGENES !== 'undefined' ? MAPEO_IMAGENES[itemActual.id] : null;
+
+    if (nombreArchivo) {
+        el.style.backgroundImage = `url('img/${nombreArchivo}')`;
+        el.style.backgroundSize = "contain";
+        el.style.backgroundRepeat = "no-repeat";
+        el.style.backgroundPosition = "center";
+        el.innerHTML = `<div style="height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:4px;"><div style="font-size:9px; font-weight:bold; background:rgba(0,0,0,0.5);">${info.nombre}</div><div style="text-align:right; font-size:10px; font-weight:bold; color:${coloresRareza[info.rareza]}; background:rgba(0,0,0,0.5);">${info.nivel}</div></div>`;
+    } else {
+        el.innerHTML = `<div style="height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:4px;"><div style="font-size:9px; font-weight:bold;">${info.nombre}</div><div style="text-align:right; font-size:10px; font-weight:bold; color:${coloresRareza[info.rareza]}">${info.nivel}</div></div>`;
+    }
+
     el.style.borderColor = coloresRareza[info.rareza];
-    el.innerHTML = `<div style="height:100%; display:flex; flex-direction:column; justify-content:space-between; padding:4px;"><div style="font-size:9px; font-weight:bold;">${info.nombre}</div><div style="text-align:right; font-size:10px; font-weight:bold; color:${coloresRareza[info.rareza]}">${info.nivel}</div></div>`;
-    actualizarEstadisticasGlobales(); cerrarModal();
+    actualizarEstadisticasGlobales(); 
+    cerrarModal();
 }
 
 function actualizarEstadisticasGlobales() {
