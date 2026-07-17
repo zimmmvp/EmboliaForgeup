@@ -3,6 +3,15 @@ let personajeActual = "Guerrero Zombie";
 const DATOS_PERSONAJES = { "Guerrero Zombie": { equipo: {} }, "Mago Oscuro": { equipo: {} }, "Ninja": { equipo: {} } };
 const coloresRareza = { "Normal": "#ffffff", "Mágico": "#007bff", "Raro": "#28a745", "Épico": "#ff00ff", "Legendario": "#ff8c00" };
 
+// Función crítica que faltaba
+function activarEdicion(item) {
+    itemActual = item;
+    document.getElementById('modal-titulo').innerText = "Editar: " + item.nombre;
+    document.getElementById('pantalla-seleccion').style.display = "none";
+    document.getElementById('seccion-edicion').style.display = "block";
+    // Aquí puedes agregar lógica adicional para mostrar los campos de edición
+}
+
 function cambiarPersonaje(nombre) {
     DATOS_PERSONAJES[personajeActual].equipo = { ...equipoPersonaje };
     personajeActual = nombre;
