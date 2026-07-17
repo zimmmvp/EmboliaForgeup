@@ -34,21 +34,27 @@ async function cargarDatos() {
         const res = await fetch('data/item.txt');
         const texto = await res.text();
         listaItems = texto.split('\n').filter(l => l.includes('item_name_')).map(l => ({ id: l.split('=>')[0].split('item_name_')[1].trim(), nombre: l.split('=>')[1].trim() }));
-        filtrarModal('');
     } catch (e) { console.error("Error al cargar datos"); }
 }
 
 function abrirModalParaSeleccion(slot) {
     slotActual = slot;
     document.getElementById('modal-planner').style.display = "block";
-    if (equipoPersonaje[slotActual]) activarEdicion(equipoPersonaje[slotActual].itemOriginal);
-    else { document.getElementById('pantalla-seleccion').style.display = "block"; document.getElementById('seccion-edicion').style.display = "none"; document.getElementById('modal-titulo').innerText = "Seleccionar Ítem"; }
+    if (equipoPersonaje[slotActual]) {
+        activarEdicion(equipoPersonaje[slotActual].itemOriginal);
+    } else { 
+        document.getElementById('pantalla-seleccion').style.display = "block"; 
+        document.getElementById('seccion-edicion').style.display = "none"; 
+        document.getElementById('modal-titulo').innerText = "Seleccionar: " + slot.toUpperCase(); 
+        filtrarPorSlot(slot); 
+    }
 }
 
-function filtrarModal(busqueda) {
+function filtrarPorSlot(slot) {
     const cont = document.getElementById('lista-modal');
     cont.innerHTML = '';
-    listaItems.filter(i => i.nombre.toLowerCase().includes(busqueda.toLowerCase())).forEach(item => {
+    // Filtra los ítems que contienen el nombre del slot en su descripción (ej: 'casco' en 'Casco de Doom')
+    listaItems.filter(i => i.nombre.toLowerCase().includes(slot.toLowerCase())).forEach(item => {
         const div = document.createElement('div');
         div.className = 'item-card'; div.innerText = item.nombre;
         div.onclick = () => activarEdicion(item);
@@ -95,10 +101,7 @@ function desequiparItem() {
     el.style.backgroundImage = "none"; 
     el.innerText = slotActual.charAt(0).toUpperCase() + slotActual.slice(1);
     actualizarEstadisticasGlobales();
-    document.getElementById('pantalla-seleccion').style.display = "block"; 
-    document.getElementById('seccion-edicion').style.display = "none";
-    document.getElementById('modal-titulo').innerText = "Seleccionar Ítem";
-    tempStatsBase = []; tempMods = [];
+    cerrarModal();
 }
 
 function guardarYEquipar() {
@@ -109,14 +112,7 @@ function guardarYEquipar() {
 
     el.style.backgroundColor = coloresRareza[info.rareza];
     el.style.borderColor = "#fff";
-
-    el.innerHTML = `
-        <div style="height:100%; position:relative;">
-            <div style="position:absolute; bottom:2px; left:4px; background:black; color:white; padding:0 4px; border-radius:3px; font-size:11px; font-weight:bold;">
-                ${info.nivel}
-            </div>
-        </div>
-    `;
+    el.innerHTML = `<div style="height:100%; position:relative;"><div style="position:absolute; bottom:2px; left:4px; background:black; color:white; padding:0 4px; border-radius:3px; font-size:11px; font-weight:bold;">${info.nivel}</div></div>`;
 
     if (nombreArchivo) {
         el.style.backgroundImage = `url('img/${nombreArchivo}')`;
@@ -124,7 +120,6 @@ function guardarYEquipar() {
         el.style.backgroundRepeat = "no-repeat";
         el.style.backgroundPosition = "center";
     }
-
     actualizarEstadisticasGlobales(); 
     cerrarModal();
 }
